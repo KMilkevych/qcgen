@@ -1,0 +1,24 @@
+#+title: Readme
+
+A tool for generating slanted circuits consisting of two qubits with the same length of unary gates and a single swap gate (3 cx-gates) inserted at different positions in the unary gate chains.
+
+* Dependencies
+Requires Qiskit:
+```sh
+pip install qiskit>=1.0
+```
+
+* Usage
+
+To generate a slanted circuit and save it to a file, use:
+```
+./qcgen.py 8 2 6 --platform guadalupe --output guad_8_2_6.qasm
+```
+The above produces a circuit of total depth 8, with 2 unary gates before the swap gate on the first qubit, and 6 unary gates before the swap gate on the second qubit: 2 unary gates before the swap gate on the first qubit, and 6 unary gates before the swap gate on the second qubit:
+```sh
+     ┌─────────┐┌─────────┐                                                 ┌───┐     ┌─────────┐┌─────────┐┌─────────┐┌─────────┐┌─────────┐┌─────────┐
+q_0: ┤ Rz(π/4) ├┤ Rz(π/4) ├──────────────────────────────────────────────■──┤ X ├──■──┤ Rz(π/4) ├┤ Rz(π/4) ├┤ Rz(π/4) ├┤ Rz(π/4) ├┤ Rz(π/4) ├┤ Rz(π/4) ├
+     ├─────────┤├─────────┤┌─────────┐┌─────────┐┌─────────┐┌─────────┐┌─┴─┐└─┬─┘┌─┴─┐├─────────┤├─────────┤└─────────┘└─────────┘└─────────┘└─────────┘
+q_1: ┤ Rz(π/4) ├┤ Rz(π/4) ├┤ Rz(π/4) ├┤ Rz(π/4) ├┤ Rz(π/4) ├┤ Rz(π/4) ├┤ X ├──■──┤ X ├┤ Rz(π/4) ├┤ Rz(π/4) ├────────────────────────────────────────────
+     └─────────┘└─────────┘└─────────┘└─────────┘└─────────┘└─────────┘└───┘     └───┘└─────────┘└─────────┘
+```
