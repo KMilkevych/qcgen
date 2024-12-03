@@ -7,6 +7,22 @@ Requires Qiskit:
 #+begin_src sh
 pip install qiskit>=1.0
 #+end_src
+* Options
+#+begin_src
+usage: qcgen.py [-h] [-p {guadalupe,tenerife,cambridge}] [-o OUTPUT]
+                depth slant_0 slant_1
+
+positional arguments:
+  depth                 Depth of unary gate chain
+  slant_0               Slant of the first qubit
+  slant_1               Slant of the second qubit
+
+options:
+  -h, --help            show this help message and exit
+  -p {guadalupe,tenerife,cambridge}, --platform {guadalupe,tenerife,cambridge}
+                        Transpile circuit to platform
+  -o OUTPUT, --output OUTPUT
+#+end_src
 
 * Usage
 
